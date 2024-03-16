@@ -14,9 +14,11 @@ mongoose.connect(process.env.MONGODB_URI).then(
     );
 
 const user = require('./roots/user.root')
+const product = require('./roots/product.root')
 const userProduct = require('./roots/user.products.roots')
 
 app.use('/api/users', user)
+app.use('/api/products', product)
 app.use('/api/user-products', userProduct)
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument.options))
