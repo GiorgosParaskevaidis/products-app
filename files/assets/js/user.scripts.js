@@ -25,8 +25,13 @@ $(document).ready(function(){
     let name = $("#name").val();
     let surname = $("#surname").val();
     let email = $("#email").val();
-    let area =  $("#area").val();
-    let road =  $("#road").val();
+    let area1 =  $("#area").val();
+    let road1 =  $("#road").val();
+
+    let address = {
+      area: area1,
+      road: road1
+    };
 
     const item = {
       'username': username,
@@ -34,15 +39,14 @@ $(document).ready(function(){
       'name': name,
       'surname': surname,
       'email': email,
-      'area': area,
-      'road': road
+      'address':address
     }
 
     console.log($('.btnSubmit').val(), item);
     $.ajax({
       url: "http://localhost:3000/api/users",
       type: "post",
-      data: item,
+      data:  item,
       dataType: "JSON",
       // encode: true,
     })

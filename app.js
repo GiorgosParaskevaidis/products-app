@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
-// const port = 3000;
+const port = 3000;
 const mongoose = require('mongoose');
 
 require('dotenv').config();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger');
@@ -33,8 +34,8 @@ app.use('/api/user-products', userProduct)
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument.options))
 
-// app.listen(port, () => {
-//     console.log('Server is up');
-// })
+app.listen(port, () => {
+    console.log('Server is up');
+})
 
 module.exports = app;

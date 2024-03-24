@@ -49,8 +49,8 @@ exports.create = async(req, res) => {
         res.status(200).json({data:result});
         console.log("User saved")
     } catch(err) {
-        res.status(400).json({data: err})
-        console.log("Problem in saving user")
+        res.status(400).json({data:err})
+        console.log("Problem in saving user", err)
     }
 }
 
